@@ -1,0 +1,67 @@
+mkdir SI_2024_lab1_223117 #kreiranje prazen dir
+
+cd SI_2024_lab1_223117/ && git init #inic na git repo
+
+git remote add origin git@github.com:zhivko-kocev/SI_2024_lab1_223117.git
+git branch -M master #povrzuvanje so odalecen repo
+
+nano README.md
+
+git add README.md
+git commit -m "Initial commit"
+
+git add *.java
+git commit -m "Add starter code"
+
+git push -u origin master
+
+git branch bug1
+git branch bug2
+
+git checkout bug1
+code .
+git add *.java
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+
+git checkout bug2
+code .
+git add *.java
+git commit -m "Fix wrong condition in makeBigStringFrom"
+
+git checkout bug1
+code .
+git add *.java
+commit -m "Call method filterOddLengthStrings in main class"
+
+git checkout bug2
+code .
+git add *.java
+commit -m "Call method makeBigStringFrom in main class"
+
+git push -u origin master
+git push -u origin bug1
+git push -u origin bug2
+
+git checkout master
+git merge bug1
+
+git checkout bug2
+git rebase master
+#solve the conflict
+git rebase --continue
+add *.java
+
+git checkout master 
+git merge bug2
+git push -u origin master
+git push -u origin bug1
+git push --force origin bug2
+
+nano logs.txt
+git add logs.txt
+nano 223117.txt
+git add 223117.txt
+git commit -m "Final commit"
+
+git push -u origin master
+
